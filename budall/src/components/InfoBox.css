@@ -1,0 +1,23 @@
+.box {
+    padding: 10px;
+    background-color: aqua;
+    border-radius: 10px;    
+}
+
+#budget-input {
+    background-color: #e2e3e5;
+}
+
+#budget-remaining {
+    background-color: #d1e7dd;
+}
+
+#budget-spent {
+    background-color: #cfe2ff;
+}
+
+#currency-input {
+    background-color: #93e499;
+}
+
+
