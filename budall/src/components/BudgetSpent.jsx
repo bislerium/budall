@@ -15,7 +15,7 @@ function BudgetSpent({ amount, currency }) {
 }
 
 BudgetSpent.propTypes = {
-  amount: PropTypes.isRequired,
+  amount: PropTypes.number.isRequired,
   currency: PropTypes.string.isRequired,
 };
 

@@ -5,13 +5,13 @@ import currencies from "../constants/Currencies";
 
 function CurrencyInput({ setCurrencyData }) {
   return (
-    <div className='box' id='currency-input'>
+    <div className='box currency-input'>
     <div className="input-group">
       <label className="input-group-text" htmlFor="inputGroupSelect01">
         Currency
       </label>
       <select
-        className="form-select"
+        className="form-select  currency-input"
         id="inputGroupSelect01"
         onChange={(e) => setCurrencyData(e.target.value)}
       >
