@@ -33,7 +33,7 @@ function BudgetAllocationForm({ currency, addNewAllocationData }) {
 
       <div className="input-group col">
         <label className="input-group-text" htmlFor="inputGroupSelect02">
-          Allocation
+          Action
         </label>
         <select
           className="form-select"
