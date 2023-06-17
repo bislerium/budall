@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function ExpenseItem({id, currency, allocation, increaseByTen, decreaseByTen, remove}) {
+function ExpenseItem({ id, currency, allocation, increaseByTen, decreaseByTen, remove }) {
   return (
     <tr>
       <th>{allocation.department}</th>
@@ -11,12 +11,12 @@ function ExpenseItem({id, currency, allocation, increaseByTen, decreaseByTen, re
         </button>
       </td>
       <td>
-      <button className="btn" onClick={() => decreaseByTen(id)}>
+        <button className="btn" onClick={() => decreaseByTen(id)}>
           <i className="bi bi bi bi-dash-circle-fill text-danger"></i>
         </button>
       </td>
       <td>
-      <button className="btn" onClick={() => remove(id)}>
+        <button className="btn" onClick={() => remove(id)}>
           <i className="bi bi bi-x-circle-fill"></i>
         </button>
       </td>

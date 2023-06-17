@@ -50,7 +50,7 @@ function BudgetAllocationForm({ currency, addNewAllocationData }) {
       </div>
 
       <div className="input-group col">
-        <span className="input-group-text">Allocation</span>
+        <span className="input-group-text">Amount</span>
         <span className="input-group-text">{currency}</span>
         <input
           type="number"
@@ -63,7 +63,7 @@ function BudgetAllocationForm({ currency, addNewAllocationData }) {
 
       <div className="col">
         <button type="button" className="btn btn-primary"
-        onClick={() => addNewAllocationData({department: department, amount: amount}, allocationType)}
+          onClick={() => addNewAllocationData({ department: department, amount: amount }, allocationType)}
         >
           Save
         </button>

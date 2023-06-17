@@ -21,29 +21,31 @@ function App() {
     { department: "Operations", amount: 150 },
   ]);
 
-  const remainingExceedAlert = () => alert(`The amount cannot exceed remaining fund ${currency}${remaining}`)
+  const remainingExceedAlert = () =>
+    alert(`The amount cannot exceed remaining fund ${currency}${remaining}`);
 
   const addNewAllocation = (newAllocation, allocationType) => {
-    const index = allocations.findIndex(obj => obj.department === newAllocation.department);
+    const index = allocations.findIndex(
+      (obj) => obj.department === newAllocation.department
+    );
     if (index != -1) {
-      
       if (allocationType == AllocationType.Add) {
         if (newAllocation.amount < remaining) {
-          setAllocationCountProperty(index, (a) => a + newAllocation.amount)
+          setAllocationCountProperty(index, (a) => a + newAllocation.amount);
         } else {
-          remainingExceedAlert()
+          remainingExceedAlert();
         }
       } else if (allocationType == AllocationType.Subtract) {
-        setAllocationCountProperty(index, (a) => a - newAllocation.amount)
+        setAllocationCountProperty(index, (a) => a - newAllocation.amount);
       }
     } else {
       if (newAllocation.amount < remaining) {
-              setAllocations([...allocations, newAllocation])
+        setAllocations([...allocations, newAllocation]);
       } else {
-        remainingExceedAlert()
+        remainingExceedAlert();
       }
     }
-  }
+  };
 
   const setAllocationCountProperty = (key, operation) => {
     setAllocations(
@@ -51,8 +53,7 @@ function App() {
         i === key ? { ...obj, amount: operation(obj.amount) } : obj
       )
     );
-  } 
-    
+  };
 
   const spentSoFar = allocations.reduce((prev, curr) => prev + curr.amount, 0);
 
@@ -60,39 +61,39 @@ function App() {
 
   function setBudgetAmount(amount) {
     if (amount < spentSoFar) {
-      alert(`You cannot reduce the budget value lower than the spending ${currency}${spentSoFar}.`)
+      alert(
+        `You cannot reduce the budget value lower than the spending ${currency}${spentSoFar}.`
+      );
     } else {
-      setBudget(amount)
+      setBudget(amount);
     }
   }
 
   return (
     <>
-      <div>
-        <h1 className="mb-2 text-start">Company&apos;s Budget Allocation</h1>
+      <h1 className="text-start">XYZ Budget Allocation</h1>
 
-        <div className="row align-items-center">
-          <div className="col">
-            <BudgetInput
-              currency={currency}
-              budget={budget}
-              setBudgetData={setBudgetAmount}
-            />
-          </div>
-          <div className="col">
-            <BudgetRemaining amount={remaining} currency={currency} />
-          </div>
-          <div className="col">
-            <BudgetSpent amount={spentSoFar} currency={currency} />
-          </div>
-          <div className="col">
-            <CurrencyInput setCurrencyData={setCurrency} />
-          </div>
+      <div className="row mt-4 align-items-center">
+        <div className="col">
+          <BudgetInput
+            currency={currency}
+            budget={budget}
+            setBudgetData={setBudgetAmount}
+          />
+        </div>
+        <div className="col">
+          <BudgetRemaining amount={remaining} currency={currency} />
+        </div>
+        <div className="col">
+          <BudgetSpent amount={spentSoFar} currency={currency} />
+        </div>
+        <div className="col">
+          <CurrencyInput setCurrencyData={setCurrency} />
         </div>
       </div>
 
       <div className="mt-4">
-        <h2 className="text-start mb-2">Allocation</h2>
+        <h2 className="text-start mb-2">Allocations</h2>
         <div style={{ height: "50vh", overflow: "scroll" }}>
           <ExpenseItemList
             currency={currency}
@@ -104,7 +105,7 @@ function App() {
       </div>
 
       <div className="mt-4">
-        <h2 className="text-start mb-2">Add Allocation</h2>
+        <h2 className="text-start mb-2">Perform Allocation</h2>
         <BudgetAllocationForm
           currency={currency}
           addNewAllocationData={addNewAllocation}

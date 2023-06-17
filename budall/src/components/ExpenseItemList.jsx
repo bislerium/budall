@@ -5,15 +5,15 @@ import PropTypes from "prop-types";
 function ExpenseItemList({ currency, allocations, setAllocationCountProperty, setAllocationsData }) {
 
   const increaseByTen = (key) => {
-    setAllocationCountProperty(key, (a) => a+10)
+    setAllocationCountProperty(key, (a) => a + 10)
   };
 
-  
+
   const decreaseByTen = (key) => {
-    setAllocationCountProperty(key, (a) => a-10)
+    setAllocationCountProperty(key, (a) => a - 10)
   };
 
-  const remove = (key) => {    
+  const remove = (key) => {
     setAllocationsData(allocations.filter((_, i) => i !== key));
   };
 
@@ -23,7 +23,7 @@ function ExpenseItemList({ currency, allocations, setAllocationCountProperty, se
         <tr>
           <th scope="col">Department</th>
           <th scope="col">Allocated Budget</th>
-          <th scope="col">Increased by 10</th>
+          <th scope="col">Increase by 10</th>
           <th scope="col">Decrease by 10</th>
           <th scope="col"></th>
         </tr>
